@@ -1,0 +1,65 @@
+version: "3.1"
+
+# intents:
+#   - greet
+#   - goodbye
+#   - affirm
+#   - deny
+#   - mood_great
+#   - mood_unhappy
+#   - bot_challenge
+
+intents:
+- request_recipe
+- greet
+- goodbye
+
+
+entities:
+  - ingredient
+  
+slots:
+  ingredient:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: ingredient
+
+
+actions:
+- action_recommend_recipe
+
+responses:
+  utter_greet:
+    - text: "Hello! What ingredient would you like to use today?"
+  utter_unrecognized_ingredient:
+    - text: "I'm not sure what recipes you can make with that ingredient. Can you try another one?"
+  utter_ask_more:
+    - text: "Would you like to find recipes with another ingredient?"
+  utter_goodbye:
+    - text: "Happy cooking! Goodbye!"
+
+# responses:
+#   utter_greet:
+#   - text: "Hey! How are you?"
+
+#   utter_cheer_up:
+#   - text: "Here is something to cheer you up:"
+#     image: "https://i.imgur.com/nGF1K8f.jpg"
+
+#   utter_did_that_help:
+#   - text: "Did that help you?"
+
+#   utter_happy:
+#   - text: "Great, carry on!"
+
+#   utter_goodbye:
+#   - text: "Bye"
+
+#   utter_iamabot:
+#   - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

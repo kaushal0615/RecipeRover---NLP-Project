@@ -1,0 +1,128 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/home/kaushalpancholi/Downloads/img2.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.App {
+  width: 90%;
+  max-width: 600px; /* Adjust width as needed */
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* This will center-align the child elements */
+}
+
+.chat-box {
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: white;
+  height: 500px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  width: 150%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow for depth */
+}
+
+.user, .bot {
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: 5px 0; /* Spacing between messages */
+  display: block; /* Let's use block to use the full width */
+  text-align: left; /* Align text to the left within the message */
+}
+
+.user {
+  align-self: flex-end;
+  background-color: #dcf8c6;
+  margin-right: 10px; /* Space from the right edge */
+}
+.bot {
+  align-self: flex-start;
+  background-color: #eaeaea;
+  margin-left: 10px; /* Space from the left edge */
+}
+
+form {
+  display: flex;
+  justify-content: center; /* Center form in the available space */
+}
+
+input {
+  flex-grow: 2; /* Input should grow more than button */
+  padding: 10px;
+  border: 1px solid #dedede;
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 16px;
+  /* width:110px; */
+  margin-right: -1px; /* Prevent double border between input and button */
+}
+
+button {
+  flex-grow: 1; /* Button should not grow as much as input */
+  padding: 10px;
+  background-color: #009688;
+  color: white;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for button hover */
+}
+/* New styles for messages */
+.message p {
+  margin: 0 0 5px 0; /* Spacing below paragraphs */
+  line-height: 1.5;
+}
+
+.message strong {
+  color: #009688; /* Theme color for titles */
+}
+
+/* Styling for the message text */
+.message .user p, .message .bot p {
+  font-size: 0.95rem;
+  color: #333; /* Darker text for better readability */
+  background: #f4f4f4; /* Light background for the text */
+  display: inline-block; /* Aligns text within its container */
+  padding: 8px 12px; /* Spacing inside text blocks */
+  border-radius: 12px; /* Rounded corners for text blocks */
+}
+.chat-box {
+  padding: 8px;
+}
+
+button:hover {
+  background-color: #00796b;
+}
+
+/* Add additional responsiveness to improve chat on mobile */
+@media (max-width: 600px) {
+  .App {
+    width: 95%; /* Small margin on mobile for breathing space */
+  }
+
+  .chat-box {
+    width: 95%; /* Almost full width on mobile */
+  }
+
+  .user, .bot {
+    max-width: 100%; /* Messages can take full width */
+  }
+}
+

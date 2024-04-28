@@ -1,0 +1,6 @@
+[
+  {
+    "name": "ingredient",
+    "pattern": "(\\bkarela\\b|\\bchicken\\b|\\bspinach\\b|\\btomatoes\\b|\\bcilantro\\b)"
+  }
+]

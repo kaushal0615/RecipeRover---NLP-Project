@@ -1,0 +1,152 @@
+version: "3.1"
+
+nlu:
+- lookup: ingredient
+  examples: |
+    - karela
+    - chicken
+    - spinach
+    - tomatoes
+    - cilantro
+    - turmeric
+    - cumin seeds
+    - coriander powder
+    - cardamom
+    - cloves
+    - cinnamon
+    - bay leaf
+    - mustard seeds
+    - fenugreek seeds
+    - asafoetida
+    - curry leaves
+    - red chili powder
+    - green chilies
+    - black pepper
+    - saffron
+    - fennel seeds
+    - tamarind
+    - mango powder
+    - yogurt
+    - cream
+    - paneer
+    - ghee
+    - coconut milk
+    - basmati rice
+    - lentils
+    - chickpeas
+    - mung beans
+    - urad dal
+    - chana dal
+    - toor dal
+    - rajma
+    - peanuts
+    - cashews
+    - almonds
+    - sesame seeds
+    - poppy seeds
+    - jaggery
+    - coconut oil
+    - sunflower oil
+    - eggplant
+    - potatoes
+    - onions
+    - garlic
+    - ginger
+    - cauliflower
+    - green peas
+    - bell peppers
+    - cabbage
+    - okra
+    - radish
+    - cucumber
+    - pumpkin
+    - bottle gourd
+    - bitter gourd
+    - ridge gourd
+    - snake gourd
+    - zucchini
+    - mushrooms
+    - beetroot
+    - carrot
+    - beans
+    - turnip
+    - sweet potatoes
+    - fenugreek leaves
+    - mint leaves
+    - parsley
+    - dill
+    - arugula
+    - lamb
+    - beef
+    - pork
+    - fish
+    - shrimp
+    - crab
+    - lobster
+    - mackerel
+    - tuna
+    - salmon
+    - cod
+    - sardines
+    - whole wheat flour
+    - all-purpose flour
+    - semolina
+    - rice flour
+    - gram flour
+    - sugar
+    - salt
+    - lemon
+    - lime
+    - vinegar
+    - star anise
+    - nutmeg
+    - rose water
+    - pomegranate seeds
+    - apple
+    - banana
+    - grapes
+    - mango
+    - papaya
+    - pineapple
+    - lychee
+    
+
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hii
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+
+- intent: request_recipe
+  examples: |
+    - I want to make something with [karela](ingredient)
+    - Can I get a recipe that uses [chicken](ingredient)?
+    - What can I cook with [spinach](ingredient)?
+
+
