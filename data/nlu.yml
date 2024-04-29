@@ -148,5 +148,10 @@ nlu:
     - I want to make something with [karela](ingredient)
     - Can I get a recipe that uses [chicken](ingredient)?
     - What can I cook with [spinach](ingredient)?
+    - Show me recipes with [tomatoes](ingredient) and [onions](ingredient)
+    - Find me a recipe with [ginger](ingredient) in it
+    - Do you have any recipes that include [cumin seeds](ingredient)?
+
+
 
 

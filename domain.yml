@@ -20,8 +20,8 @@ entities:
   
 slots:
   ingredient:
-    type: text
-    influence_conversation: false
+    type: list
+    influence_conversation: true
     mappings:
       - type: from_entity
         entity: ingredient

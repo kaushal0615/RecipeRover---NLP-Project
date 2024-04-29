@@ -11,3 +11,8 @@ rules:
   steps:
   - intent: goodbye
   - action: utter_goodbye
+
+- rule: Recommend recipe
+  steps:
+    - intent: request_recipe
+    - action: action_recommend_recipe

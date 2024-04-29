@@ -16,7 +16,7 @@ action_endpoint:
  rasa:
   # Other Rasa configurations
   cors_origins:
-    - "http://localhost:3000"
+    - "http://localhost:3000"                                                                           
 
 # Tracker store which is used to store the conversations.
 # By default the conversations are stored in memory.
