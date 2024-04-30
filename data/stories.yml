@@ -1,12 +1,20 @@
 version: "3.1"
 
 stories:
-- story: User wants a recipe
+- story: User wants a recipe and agrees to more suggestions
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: request_recipe
   - action: action_recommend_recipe
-  - intent: goodbye
+  - action: utter_ask_more
+  - intent: affirm
+  - action: action_recommend_recipe
+
+- story: User wants a recipe and then no more
+  steps:
+  - intent: request_recipe
+  - action: action_recommend_recipe
+  - action: utter_ask_more
+  - intent: deny
   - action: utter_goodbye
+
 

@@ -10,7 +10,8 @@ function App() {
   const sendMessage = async (e) => {
     e.preventDefault();
     const userInput = inputText;
-    
+  
+    // Update the messages state to include the user's message
     setMessages(currentMessages => [...currentMessages, { text: userInput, sender: 'user' }]);
     setInputText('');
   
@@ -20,50 +21,23 @@ function App() {
         sender: 'user',
       });
   
-      // Process each message received from the bot
-      let recipeMessages = [];
-      let hasRecipes = false;
+      // Flatten all bot messages into a single array
+      let newMessages = response.data.reduce((acc, botMessage) => {
+        // Handle regular text responses and recipe messages uniformly
+        return [...acc, {
+          text: botMessage.text || '',
+          sender: 'bot'
+        }];
+      }, []);
   
-      response.data.forEach((botMessage) => {
-        if (botMessage.custom) {
-          // Check if recipes are present in the custom message
-          if (botMessage.custom.recipes && botMessage.custom.recipes.length > 0) {
-            hasRecipes = true;
-            // Accumulate the recipes
-            botMessage.custom.recipes.forEach((recipe) => {
-              recipeMessages.push({
-                text: (
-                  <>
-                    <p><strong>Recipe:</strong> {recipe.name}</p>
-                    <p><strong>Ingredients:</strong> {Array.isArray(recipe.ingredients) ? recipe.ingredients.join(", ") : recipe.ingredients}</p>
-                    <p><strong>Instructions:</strong> {recipe.instructions}</p>
-                  </>
-                ),
-                sender: 'bot'
-              });
-            });
-          }
-        } else {
-          // Handle regular text responses
-          setMessages(currentMessages => [...currentMessages, {
-            text: botMessage.text,
-            sender: 'bot'
-          }]);
-        }
-      });
+      // Update state with all new messages at once
+      setMessages(currentMessages => [...currentMessages, ...newMessages]);
   
-      // If there are recipes, prepend the introductory text and append all to the messages
-      if (hasRecipes) {
-        setMessages(currentMessages => [
-          ...currentMessages,
-          { text: <p>Here are some recipes you might like:</p>, sender: 'bot' },
-          ...recipeMessages
-        ]);
-      }
     } catch (error) {
       console.error('Error sending message:', error);
     }
   };
+  
   
   
   

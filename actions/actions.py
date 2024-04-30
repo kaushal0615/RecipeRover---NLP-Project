@@ -77,18 +77,25 @@ class ActionRecommendRecipe(Action):
         if ingredient:
             recommended_recipes = self.recommend_recipes(ingredient)
             if recommended_recipes:
-                recipes_data = [{
-                    "name": name, "ingredients": ingredients, "instructions": instructions
-                } for name, ingredients, instructions in recommended_recipes]
-                dispatcher.utter_message(custom={
-                    "text": "Here are some recipes you might like:",
-                    "recipes": recipes_data
-                })
+                # First, send all the recipe data
+                for recipe in recommended_recipes:
+                    dispatcher.utter_message(text=f"Recipe: {recipe[0]}")
+                    dispatcher.utter_message(text=f"Ingredients: {recipe[1]}")
+                    dispatcher.utter_message(text=f"Instructions: {recipe[2]}")
+
+                # After all recipes are sent, ask if the user wants more
+                dispatcher.utter_message(text="Would you like to look for more recipes?")
             else:
+                # If no recipes are found, inform the user
                 dispatcher.utter_message(text="I couldn't find any recipes with that ingredient.")
+                # Ask if the user wants to search again
+                dispatcher.utter_message(text="Would you like to look for more recipes?")
         else:
+            # If no ingredient is provided, prompt the user for one
             dispatcher.utter_message(text="I don't recognize that ingredient. Can you try another one?")
+
         return []
+
     
 
     

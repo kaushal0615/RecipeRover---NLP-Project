@@ -110,7 +110,25 @@ nlu:
     - pineapple
     - lychee
     
+- intent: affirm
+  examples: |
+    - yes
+    - sure
+    - that sounds good
+    - yes please
+    - of course
+    - please do
+    - yeah
 
+- intent: deny
+  examples: |
+    - no thanks
+    - nope
+    - no
+    - not interested
+    - I'm good
+    - that's all
+    - no thank you
 
 - intent: greet
   examples: |

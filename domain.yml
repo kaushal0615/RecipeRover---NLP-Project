@@ -13,6 +13,8 @@ intents:
 - request_recipe
 - greet
 - goodbye
+- affirm
+- deny
 
 
 entities:

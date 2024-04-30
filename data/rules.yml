@@ -1,6 +1,5 @@
 version: "3.1"
 
-
 rules:
 - rule: Respond to greet
   steps:
@@ -11,8 +10,5 @@ rules:
   steps:
   - intent: goodbye
   - action: utter_goodbye
+  - action: utter_goodbye
 
-- rule: Recommend recipe
-  steps:
-    - intent: request_recipe
-    - action: action_recommend_recipe
