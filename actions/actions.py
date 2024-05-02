@@ -38,20 +38,21 @@ class ActionRecommendRecipe(Action):
         self.tfidf_matrix = joblib.load('/home/kaushalpancholi/Desktop/NLP-Project/tfidf_matrix1.joblib')
         self.stop_words = set(stopwords.words('english'))
         self.spell = SpellChecker()
-        self.custom_dict = {'paneer', 'milk', 'ghee', 'masala', 'curry', 'chai', 'korma'}
+        self.custom_dict = {'paneer', 'milk', 'ghee', 'masala', 'curry', 'chai', 'korma','karela','pavakkai', 'aloo','puri', 'eggs', 'egg'}
     
     def preprocess_text(self, text):
         text = text.lower()
-        text = re.sub(r'\d+', '', text)  # Remove numbers
-        text = re.sub(r'<.*?>', '', text)  # Remove HTML tags
-        text = re.sub(r'[^\w\s]', '', text)  # Remove punctuation
+        text = re.sub(r'\d+', '', text)  
+        text = re.sub(r'<.*?>', '', text)  
+        
+        text = re.sub(r'[^\w\s]', '', text)  
         # Tokenize the text
         words = text.split()
         # Correct spelling with check against custom dictionary
         corrected_words = [word if word in self.custom_dict else self.spell.correction(word) for word in words]
         # Join the corrected words back into a string
         corrected_text = ' '.join(corrected_words)
-        common_words = {'recipe', 'recipes', 'want', 'make', 'something', 'cook', 'and', 'a', 'a recipe'} 
+        common_words = {'recipe', 'recipes', 'want', 'make', 'something', 'cook', 'and', 'a', 'a recipe','any recipes','table','spoon', 'tablespoon','utensils', 'subbu','sub','glass','glasses','cup','cups','teaspoon','pinch','area','noodles','manchurian','Manchurian', 'suburb'} 
         doc = self.nlp(corrected_text)
         all_stops = self.stop_words.union(common_words)
         ingredients = ' '.join([chunk.text for chunk in doc.noun_chunks if chunk.text not in all_stops])        
@@ -95,6 +96,8 @@ class ActionRecommendRecipe(Action):
             dispatcher.utter_message(text="I don't recognize that ingredient. Can you try another one?")
 
         return []
+
+
 
     
 
